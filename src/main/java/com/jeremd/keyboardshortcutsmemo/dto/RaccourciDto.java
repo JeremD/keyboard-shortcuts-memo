@@ -1,20 +1,13 @@
-package com.jeremd.keyboardshortcutsmemo.entity;
+package com.jeremd.keyboardshortcutsmemo.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "raccourci")
-public class Raccourci {
+import com.jeremd.keyboardshortcutsmemo.entity.Programme;
+
+public class RaccourciDto {
 
 	/** id */
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	/** libelle */
@@ -25,17 +18,15 @@ public class Raccourci {
 
 	/** touche */
 	private String touche;
-	
+
 	/** programme */
-	@ManyToOne
-	@JoinColumn(name = "id_prog")
 	private Programme programme;
 
 	/**
 	 * Constructor
 	 *
 	 */
-	public Raccourci() {
+	public RaccourciDto() {
 	}
 
 	/**
@@ -47,7 +38,8 @@ public class Raccourci {
 	 * @param touche
 	 * @param programme
 	 */
-	public Raccourci(Integer id, String libelle, String description, String touche, Programme programme) {
+	public RaccourciDto(Integer id, String libelle, String description, String touche, Programme programme) {
+		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.description = description;
@@ -60,7 +52,7 @@ public class Raccourci {
 	 *
 	 * @return the id
 	 */
-	public Integer getid() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -69,7 +61,7 @@ public class Raccourci {
 	 *
 	 * @param id to set
 	 */
-	public void setid(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

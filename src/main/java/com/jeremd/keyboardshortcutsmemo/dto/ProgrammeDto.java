@@ -1,23 +1,16 @@
-package com.jeremd.keyboardshortcutsmemo.entity;
+package com.jeremd.keyboardshortcutsmemo.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "programme")
-public class Programme {
+import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
+
+public class ProgrammeDto {
 
 	/** id */
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	/** categorie */
@@ -27,25 +20,25 @@ public class Programme {
 	private String nom;
 	
 	/** raccourci */
-	@OneToMany(mappedBy="raccourci", cascade=CascadeType.ALL, orphanRemoval = true)
 	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
 	
 	/**
 	 * Constructor
 	 *
 	 */
-	public Programme() {
+	public ProgrammeDto() {
 	}
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param id
 	 * @param categorie
 	 * @param nom
 	 * @param raccourci
 	 */
-	public Programme(Integer id, String categorie, String nom, List<Raccourci> raccourci) {
+	public ProgrammeDto(Integer id, String categorie, String nom, List<Raccourci> raccourci) {
+		super();
 		this.id = id;
 		this.categorie = categorie;
 		this.nom = nom;
@@ -57,7 +50,7 @@ public class Programme {
 	 *
 	 * @return the id
 	 */
-	public Integer getid() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -66,7 +59,7 @@ public class Programme {
 	 *
 	 * @param id to set
 	 */
-	public void setid(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -123,7 +116,5 @@ public class Programme {
 	public void setRaccourci(List<Raccourci> raccourci) {
 		this.raccourci = raccourci;
 	}
-	
-	
 
 }
