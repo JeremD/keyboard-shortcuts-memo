@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,10 @@ public class Raccourci {
 
 	/** touche */
 	private String touche;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_prog")
+	private Programme programme;
 
 	/**
 	 * Constructor
@@ -116,6 +122,24 @@ public class Raccourci {
 	 */
 	public void setTouche(String touche) {
 		this.touche = touche;
+	}
+
+	/**
+	 * Getter
+	 *
+	 * @return the programme
+	 */
+	public Programme getProgramme() {
+		return programme;
+	}
+
+	/**
+	 * Setter
+	 *
+	 * @param programme to set
+	 */
+	public void setProgramme(Programme programme) {
+		this.programme = programme;
 	}
 
 }

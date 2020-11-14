@@ -1,9 +1,12 @@
 package com.jeremd.keyboardshortcutsmemo.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +23,10 @@ public class Programme {
 
 	/** nom */
 	private String nom;
-
+	
+	@OneToMany(mappedBy="raccourci")
+	private List<Raccourci> raccourci;
+	
 	/**
 	 * Constructor
 	 *
@@ -35,10 +41,11 @@ public class Programme {
 	 * @param categorie
 	 * @param nom
 	 */
-	public Programme(Integer id, String categorie, String nom) {
+	public Programme(Integer id, String categorie, String nom, List<Raccourci> raccourci) {
 		this.id = id;
 		this.categorie = categorie;
 		this.nom = nom;
+		this.raccourci = raccourci;
 	}
 
 	/**
@@ -94,5 +101,25 @@ public class Programme {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	/**
+	 * Getter
+	 *
+	 * @return the raccourci
+	 */
+	public List<Raccourci> getRaccourci() {
+		return raccourci;
+	}
+
+	/**
+	 * Setter
+	 *
+	 * @param raccourci to set
+	 */
+	public void setRaccourci(List<Raccourci> raccourci) {
+		this.raccourci = raccourci;
+	}
+	
+	
 
 }
