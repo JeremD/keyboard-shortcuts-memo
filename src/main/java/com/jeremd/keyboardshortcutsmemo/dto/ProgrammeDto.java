@@ -18,10 +18,7 @@ public class ProgrammeDto {
 
 	/** nom */
 	private String nom;
-	
-	/** raccourci */
-	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
-	
+
 	/**
 	 * Constructor
 	 *
@@ -37,12 +34,10 @@ public class ProgrammeDto {
 	 * @param nom
 	 * @param raccourci
 	 */
-	public ProgrammeDto(Integer id, String categorie, String nom, List<Raccourci> raccourci) {
-		super();
+	public ProgrammeDto(Integer id, String categorie, String nom) {
 		this.id = id;
 		this.categorie = categorie;
 		this.nom = nom;
-		this.raccourci = raccourci;
 	}
 
 	/**
@@ -97,24 +92,6 @@ public class ProgrammeDto {
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	/**
-	 * Getter
-	 *
-	 * @return the raccourci
-	 */
-	public List<Raccourci> getRaccourci() {
-		return raccourci;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param raccourci to set
-	 */
-	public void setRaccourci(List<Raccourci> raccourci) {
-		this.raccourci = raccourci;
 	}
 
 }

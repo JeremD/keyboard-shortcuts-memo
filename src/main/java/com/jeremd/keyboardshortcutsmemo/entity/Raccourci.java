@@ -23,9 +23,9 @@ public class Raccourci {
 	/** description */
 	private String description;
 
-	/** touche */
-	private String touche;
-	
+	/** touches */
+	private String touches;
+
 	/** programme */
 	@ManyToOne
 	@JoinColumn(name = "id_prog")
@@ -44,13 +44,13 @@ public class Raccourci {
 	 * @param id
 	 * @param libelle
 	 * @param description
-	 * @param touche
+	 * @param touches
 	 * @param programme
 	 */
-	public Raccourci(String libelle, String description, String touche) {
+	public Raccourci(String libelle, String description, String touches) {
 		this.libelle = libelle;
 		this.description = description;
-		this.touche = touche;
+		this.touches = touches;
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class Raccourci {
 	 *
 	 * @return the id
 	 */
-	public Integer getid() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -67,7 +67,7 @@ public class Raccourci {
 	 *
 	 * @param id to set
 	 */
-	public void setid(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -110,19 +110,19 @@ public class Raccourci {
 	/**
 	 * Getter
 	 *
-	 * @return the touche
+	 * @return the touches
 	 */
 	public String getTouche() {
-		return touche;
+		return touches;
 	}
 
 	/**
 	 * Setter
 	 *
-	 * @param touche to set
+	 * @param touches to set
 	 */
-	public void setTouche(String touche) {
-		this.touche = touche;
+	public void setTouche(String touches) {
+		this.touches = touches;
 	}
 
 	/**

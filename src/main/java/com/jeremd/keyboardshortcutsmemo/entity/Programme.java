@@ -25,11 +25,11 @@ public class Programme {
 
 	/** nom */
 	private String nom;
-	
+
 	/** raccourci */
-	@OneToMany(mappedBy="raccourci", cascade=CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "raccourci", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
-	
+
 	/**
 	 * Constructor
 	 *
@@ -55,7 +55,7 @@ public class Programme {
 	 *
 	 * @return the id
 	 */
-	public Integer getid() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -64,7 +64,7 @@ public class Programme {
 	 *
 	 * @param id to set
 	 */
-	public void setid(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -121,7 +121,5 @@ public class Programme {
 	public void setRaccourci(List<Raccourci> raccourci) {
 		this.raccourci = raccourci;
 	}
-	
-	
 
 }

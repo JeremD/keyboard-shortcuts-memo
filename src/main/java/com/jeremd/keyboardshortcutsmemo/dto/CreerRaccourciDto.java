@@ -15,11 +15,11 @@ public class CreerRaccourciDto {
 	@JsonProperty("description")
 	private String description;
 
-	/** touche */
+	/** touches */
 	@NotBlank
-	@JsonProperty("touche")
-	private String touche;
-	
+	@JsonProperty("touches")
+	private String touches;
+
 	/**
 	 * Constructor
 	 *

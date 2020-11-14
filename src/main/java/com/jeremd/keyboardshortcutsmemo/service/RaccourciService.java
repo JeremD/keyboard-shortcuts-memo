@@ -11,7 +11,7 @@ public class RaccourciService {
 
 	/** raccourciRepo */
 	private RaccourciRepo raccourciRepo;
-	
+
 	/**
 	 * Constructor
 	 *
@@ -22,25 +22,25 @@ public class RaccourciService {
 	}
 
 	/**
-	 * Afficher les raccourcis 
+	 * Afficher les raccourcis
 	 * 
 	 * @return List of Raccourci
 	 */
 	public List<Raccourci> afficher() {
 		return raccourciRepo.findAll();
 	}
-	
+
 	/**
 	 * Ajouter un raccourci
 	 * 
 	 * @param libelle
 	 * @param nom
-	 * @param touche
+	 * @param touches
 	 * @return Raccourci ajouté
 	 */
 	@Transactional
-	public Raccourci ajouter(String libelle, String nom, String touche) {
-		return raccourciRepo.save(new Raccourci(libelle, nom, touche));
+	public Raccourci ajouter(String libelle, String nom, String touches) {
+		return raccourciRepo.save(new Raccourci(libelle, nom, touches));
 	}
-	
+
 }
