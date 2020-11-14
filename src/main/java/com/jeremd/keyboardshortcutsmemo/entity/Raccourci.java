@@ -47,12 +47,10 @@ public class Raccourci {
 	 * @param touche
 	 * @param programme
 	 */
-	public Raccourci(Integer id, String libelle, String description, String touche, Programme programme) {
-		this.id = id;
+	public Raccourci(String libelle, String description, String touche) {
 		this.libelle = libelle;
 		this.description = description;
 		this.touche = touche;
-		this.programme = programme;
 	}
 
 	/**

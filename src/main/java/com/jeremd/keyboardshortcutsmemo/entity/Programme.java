@@ -45,11 +45,9 @@ public class Programme {
 	 * @param nom
 	 * @param raccourci
 	 */
-	public Programme(Integer id, String categorie, String nom, List<Raccourci> raccourci) {
-		this.id = id;
+	public Programme(String categorie, String nom) {
 		this.categorie = categorie;
 		this.nom = nom;
-		this.raccourci = raccourci;
 	}
 
 	/**
