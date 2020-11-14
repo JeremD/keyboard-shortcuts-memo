@@ -17,7 +17,7 @@ public class CreerRaccourciDto {
 
 	/** touche */
 	@NotBlank
-	@JsonProperty("libelle")
+	@JsonProperty("touche")
 	private String touche;
 	
 	/**
