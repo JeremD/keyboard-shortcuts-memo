@@ -1,11 +1,6 @@
 package com.jeremd.keyboardshortcutsmemo.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Id;
-
-import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 
 public class ProgrammeDto {
 
