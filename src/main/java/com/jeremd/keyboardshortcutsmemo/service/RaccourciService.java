@@ -2,11 +2,13 @@ package com.jeremd.keyboardshortcutsmemo.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 import com.jeremd.keyboardshortcutsmemo.repository.RaccourciRepo;
 
+@Service
 public class RaccourciService {
 
 	/** raccourciRepo */
@@ -34,13 +36,13 @@ public class RaccourciService {
 	 * Ajouter un raccourci
 	 * 
 	 * @param libelle
-	 * @param nom
+	 * @param description
 	 * @param touches
 	 * @return Raccourci ajouté
 	 */
 	@Transactional
-	public Raccourci ajouter(String libelle, String nom, String touches) {
-		return raccourciRepo.save(new Raccourci(libelle, nom, touches));
+	public Raccourci ajouter(String libelle, String description, String touches) {
+		return raccourciRepo.save(new Raccourci(libelle, description, touches));
 	}
 
 }

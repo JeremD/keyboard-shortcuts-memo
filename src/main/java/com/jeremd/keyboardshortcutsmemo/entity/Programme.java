@@ -27,7 +27,7 @@ public class Programme {
 	private String nom;
 
 	/** raccourci */
-	@OneToMany(mappedBy = "raccourci", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "programme", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
 
 	/**

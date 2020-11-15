@@ -41,7 +41,6 @@ public class Raccourci {
 	/**
 	 * Constructor
 	 *
-	 * @param id
 	 * @param libelle
 	 * @param description
 	 * @param touches
