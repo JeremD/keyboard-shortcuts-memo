@@ -17,7 +17,7 @@ import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.service.ProgrammeService;
 
 @RestController
-@RequestMapping
+@RequestMapping("programmes")
 public class ProgrammeController {
 
 	/** programmeService */
@@ -32,6 +32,14 @@ public class ProgrammeController {
 		this.programmeService = programmeService;
 	}
 
+	/**
+	 * @return
+	 */
+	@RequestMapping(value="/")
+	public static String Welcome() {
+		return "Bienvenue dans le mémo des raccourcis clavier";
+	}
+	
 	/**
 	 * Lister tous les programmes
 	 * 
