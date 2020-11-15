@@ -40,7 +40,6 @@ public class Programme {
 	/**
 	 * Constructor
 	 * 
-	 * @param id
 	 * @param categorie
 	 * @param nom
 	 * @param raccourci

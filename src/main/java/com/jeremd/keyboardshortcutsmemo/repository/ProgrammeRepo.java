@@ -6,5 +6,4 @@ import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 
 public interface ProgrammeRepo extends JpaRepository<Programme, Integer> {
 
-
 }

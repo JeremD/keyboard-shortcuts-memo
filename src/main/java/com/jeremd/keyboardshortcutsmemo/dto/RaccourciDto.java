@@ -1,6 +1,6 @@
 package com.jeremd.keyboardshortcutsmemo.dto;
 
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 
