@@ -2,7 +2,7 @@ create table programme (
     id int not null auto_increment,
     categorie char(50) not null,
     nom char(50) unique not null,
-    primary key (id_prog)
+    primary key (id)
 );
 
 create table raccourci (

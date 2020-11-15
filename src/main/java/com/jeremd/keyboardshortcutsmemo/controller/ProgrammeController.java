@@ -35,7 +35,7 @@ public class ProgrammeController {
 	/**
 	 * @return
 	 */
-	@RequestMapping(value="/")
+	@RequestMapping("/about")
 	public static String Welcome() {
 		return "Bienvenue dans le mémo des raccourcis clavier";
 	}
@@ -45,7 +45,7 @@ public class ProgrammeController {
 	 * 
 	 * @return List of Programme
 	 */
-	@GetMapping("/programmes")
+	@GetMapping
 	public ResponseEntity<?> listerProgrammes() {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.lister());
 	}
@@ -57,7 +57,7 @@ public class ProgrammeController {
 	 * @param result
 	 * @return Programme added
 	 */
-	@PostMapping("/programmes")
+	@PostMapping
 	public ProgrammeDto ajouterProgramme(@RequestBody @Valid CreerProgrammeDto programme, BindingResult result) {
 
 		Programme ajoutProgramme = programmeService.ajouter(programme.getCategorie(), programme.getNom());
