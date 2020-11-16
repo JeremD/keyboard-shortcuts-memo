@@ -8,6 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.repository.ProgrammeRepo;
 
+/**
+ * @author Jeremy
+ *
+ */
+/**
+ * @author Jeremy
+ *
+ */
 @Service
 public class ProgrammeService {
 
@@ -24,12 +32,22 @@ public class ProgrammeService {
 	}
 	
 	/**
-	 * Lister les programmes
+	 * Lister tous les programmes
 	 * 
 	 * @return List of Programme
 	 */
 	public List<Programme> lister() {
 		return programmeRepo.findAll();
+	}
+	
+	/**
+	 * Lister les catégories
+	 * 
+	 * @param categorie
+	 * @return
+	 */
+	public List<Programme> listerParCategorie(String categorie) {
+		return programmeRepo.findByCategorie(categorie);
 	}
 	
 	/**

@@ -29,9 +29,9 @@ public class Programme {
 	private String nom;
 
 	/** raccourci */
-	@JsonManagedReference
-	@OneToMany(mappedBy = "nomProgramme", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
+//	@OneToMany(mappedBy = "nomProgramme")
+//	@JsonManagedReference
+//	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
 
 	/**
 	 * Constructor
@@ -40,7 +40,7 @@ public class Programme {
 	public Programme() {
 	}
 	
-
+	
 	/**
 	 * Constructor
 	 * 
@@ -106,22 +106,5 @@ public class Programme {
 		this.nom = nom;
 	}
 
-	/**
-	 * Getter
-	 *
-	 * @return the raccourci
-	 */
-	public List<Raccourci> getRaccourci() {
-		return raccourci;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param raccourci to set
-	 */
-	public void setRaccourci(List<Raccourci> raccourci) {
-		this.raccourci = raccourci;
-	}
 
 }

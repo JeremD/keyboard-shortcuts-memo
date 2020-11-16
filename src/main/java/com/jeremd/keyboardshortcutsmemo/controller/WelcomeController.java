@@ -11,6 +11,8 @@ public class WelcomeController {
 	}
 
 	/**
+	 * Welcome
+	 * 
 	 * @return
 	 */
 	@GetMapping("/")
@@ -18,7 +20,10 @@ public class WelcomeController {
 		return "Bienvenue dans le mémo des raccourcis clavier";
 	}
 	
+
 	/**
+	 * About
+	 * 
 	 * @return
 	 */
 	@GetMapping("/about")

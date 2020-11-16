@@ -29,6 +29,23 @@ public class RaccourciDto {
 	public RaccourciDto() {
 	}
 
+	
+	/**
+	 * Constructor
+	 *
+	 * @param id
+	 * @param libelle
+	 * @param description
+	 * @param touches
+	 */
+	public RaccourciDto(Integer id, String libelle, String description, String touches) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+		this.description = description;
+		this.touches = touches;
+	}
+	
 	/**
 	 * Constructor
 	 *

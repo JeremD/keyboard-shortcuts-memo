@@ -1,11 +1,8 @@
 package com.jeremd.keyboardshortcutsmemo.dto;
 
-import org.springframework.data.annotation.Id;
-
 public class ProgrammeDto {
 
 	/** id */
-	@Id
 	private Integer id;
 
 	/** categorie */

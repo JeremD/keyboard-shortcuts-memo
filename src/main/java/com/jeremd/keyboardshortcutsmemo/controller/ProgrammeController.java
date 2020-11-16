@@ -1,11 +1,14 @@
 package com.jeremd.keyboardshortcutsmemo.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +41,13 @@ public class ProgrammeController {
 	 * @return List of Programme
 	 */
 	@GetMapping
-	public ResponseEntity<?> listerProgrammes() {
+	public ResponseEntity<List<Programme>> listerProgrammes() {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.lister());
+	}
+	
+	@GetMapping("{categorie}")
+	public ResponseEntity<List<Programme>> listerCategories(@PathVariable String categorie) {
+		return ResponseEntity.status(HttpStatus.OK).body(programmeService.listerParCategorie(categorie));
 	}
 
 	/**
