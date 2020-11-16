@@ -35,7 +35,7 @@ public class ProgrammeController {
 	/**
 	 * @return
 	 */
-	@RequestMapping("/about")
+	@GetMapping("/about")
 	public static String Welcome() {
 		return "Bienvenue dans le mémo des raccourcis clavier";
 	}

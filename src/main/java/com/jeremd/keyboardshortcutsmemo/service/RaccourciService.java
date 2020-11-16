@@ -24,12 +24,13 @@ public class RaccourciService {
 	}
 
 	/**
-	 * Afficher les raccourcis
+	 * Afficher les raccourcis d'un logiciel
 	 * 
 	 * @return List of Raccourci
 	 */
-	public List<Raccourci> afficher() {
-		return raccourciRepo.findAll();
+	
+	public List<Raccourci> afficher(String categorie, String nomProgramme) {
+		return raccourciRepo.findBySoftware(categorie, nomProgramme);
 	}
 
 	/**
