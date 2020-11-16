@@ -28,8 +28,8 @@ public class RaccourciController {
 	 * @return
 	 */
 	@GetMapping("{categorie}/{nomProgramme}")
-	public ResponseEntity<?> listerRaccourcis(@PathVariable String categorie, @PathVariable String nomProgramme) {
-		return ResponseEntity.status(HttpStatus.OK).body(raccourciService.afficher(categorie, nomProgramme));
+	public ResponseEntity<?> listerRaccourcis(@PathVariable String nomProgramme) {
+		return ResponseEntity.status(HttpStatus.OK).body(raccourciService.afficher(nomProgramme));
 	}
 
 }

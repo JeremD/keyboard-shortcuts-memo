@@ -26,11 +26,11 @@ public class RaccourciService {
 	/**
 	 * Afficher les raccourcis d'un logiciel
 	 * 
-	 * @return List of Raccourci
+	 * @param nomProgramme
+	 * @return raccourci du logiciel
 	 */
-	
-	public List<Raccourci> afficher(String categorie, String nomProgramme) {
-		return raccourciRepo.findBySoftware(categorie, nomProgramme);
+	public List<Raccourci> afficher(String nomProgramme) {
+		return raccourciRepo.findByProgramme(nomProgramme);
 	}
 
 	/**
