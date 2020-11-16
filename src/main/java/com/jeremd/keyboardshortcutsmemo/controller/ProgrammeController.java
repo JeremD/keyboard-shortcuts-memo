@@ -31,14 +31,6 @@ public class ProgrammeController {
 	public ProgrammeController(ProgrammeService programmeService) {
 		this.programmeService = programmeService;
 	}
-
-	/**
-	 * @return
-	 */
-	@GetMapping("/about")
-	public static String Welcome() {
-		return "Bienvenue dans le mémo des raccourcis clavier";
-	}
 	
 	/**
 	 * Lister tous les programmes

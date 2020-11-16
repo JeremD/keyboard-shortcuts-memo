@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "programme")
 public class Programme {
@@ -27,6 +29,7 @@ public class Programme {
 	private String nom;
 
 	/** raccourci */
+	@JsonManagedReference
 	@OneToMany(mappedBy = "nomProgramme", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
 
@@ -36,13 +39,13 @@ public class Programme {
 	 */
 	public Programme() {
 	}
+	
 
 	/**
 	 * Constructor
 	 * 
 	 * @param categorie
 	 * @param nom
-	 * @param raccourci
 	 */
 	public Programme(String categorie, String nom) {
 		this.categorie = categorie;
