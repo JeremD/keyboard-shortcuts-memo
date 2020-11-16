@@ -26,10 +26,10 @@ public class Raccourci {
 	/** touches */
 	private String touches;
 
-	/** programme */
+	/** nomProgramme */
 	@ManyToOne
 	@JoinColumn(name = "id_prog")
-	private Programme programme;
+	private Programme nomProgramme;
 
 	/**
 	 * Constructor
@@ -44,7 +44,7 @@ public class Raccourci {
 	 * @param libelle
 	 * @param description
 	 * @param touches
-	 * @param programme
+	 * @param nomProgramme
 	 */
 	public Raccourci(String libelle, String description, String touches) {
 		this.libelle = libelle;
@@ -127,19 +127,19 @@ public class Raccourci {
 	/**
 	 * Getter
 	 *
-	 * @return the programme
+	 * @return the nomProgramme
 	 */
 	public Programme getProgramme() {
-		return programme;
+		return nomProgramme;
 	}
 
 	/**
 	 * Setter
 	 *
-	 * @param programme to set
+	 * @param nomProgramme to set
 	 */
-	public void setProgramme(Programme programme) {
-		this.programme = programme;
+	public void setProgramme(Programme nomProgramme) {
+		this.nomProgramme = nomProgramme;
 	}
 
 }

@@ -14,7 +14,7 @@ import com.jeremd.keyboardshortcutsmemo.service.RaccourciService;
 public class RaccourciController {
 
 	private RaccourciService raccourciService;
-	
+
 	public RaccourciController(RaccourciService raccourciService) {
 		this.raccourciService = raccourciService;
 	}
@@ -24,7 +24,7 @@ public class RaccourciController {
 	 * Lister les raccourcis d'un programme
 	 * 
 	 * @param categorie
-	 * @param programme
+	 * @param nomProgramme
 	 * @return
 	 */
 	@GetMapping("{categorie}/{nomProgramme}")

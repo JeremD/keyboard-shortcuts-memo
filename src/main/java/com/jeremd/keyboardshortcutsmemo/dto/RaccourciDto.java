@@ -19,8 +19,8 @@ public class RaccourciDto {
 	/** touches */
 	private String touches;
 
-	/** programme */
-	private Programme programme;
+	/** nomProgramme */
+	private Programme nomProgramme;
 
 	/**
 	 * Constructor
@@ -36,15 +36,15 @@ public class RaccourciDto {
 	 * @param libelle
 	 * @param description
 	 * @param touches
-	 * @param programme
+	 * @param nomProgramme
 	 */
-	public RaccourciDto(Integer id, String libelle, String description, String touches, Programme programme) {
+	public RaccourciDto(Integer id, String libelle, String description, String touches, Programme nomProgramme) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.description = description;
 		this.touches = touches;
-		this.programme = programme;
+		this.nomProgramme = nomProgramme;
 	}
 
 	/**
@@ -122,19 +122,19 @@ public class RaccourciDto {
 	/**
 	 * Getter
 	 *
-	 * @return the programme
+	 * @return the nomProgramme
 	 */
 	public Programme getProgramme() {
-		return programme;
+		return nomProgramme;
 	}
 
 	/**
 	 * Setter
 	 *
-	 * @param programme to set
+	 * @param nomProgramme to set
 	 */
-	public void setProgramme(Programme programme) {
-		this.programme = programme;
+	public void setProgramme(Programme nomProgramme) {
+		this.nomProgramme = nomProgramme;
 	}
 
 }
