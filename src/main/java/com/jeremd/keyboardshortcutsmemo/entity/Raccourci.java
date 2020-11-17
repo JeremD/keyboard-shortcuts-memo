@@ -28,7 +28,7 @@ public class Raccourci {
 	/** touches */
 	private String touches;
 
-	/** nomProgramme */
+	/** programme */
 	@ManyToOne
 	private Programme programme;
 
