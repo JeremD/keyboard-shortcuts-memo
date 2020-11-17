@@ -20,7 +20,7 @@ public class RaccourciDto {
 	private String touches;
 
 	/** nomProgramme */
-	private Programme nomProgramme;
+	private String nomProgramme;
 
 	/**
 	 * Constructor
@@ -55,7 +55,7 @@ public class RaccourciDto {
 	 * @param touches
 	 * @param nomProgramme
 	 */
-	public RaccourciDto(Integer id, String libelle, String description, String touches, Programme nomProgramme) {
+	public RaccourciDto(Integer id, String libelle, String description, String touches, String nomProgramme) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
@@ -141,7 +141,7 @@ public class RaccourciDto {
 	 *
 	 * @return the nomProgramme
 	 */
-	public Programme getProgramme() {
+	public String getProgramme() {
 		return nomProgramme;
 	}
 
@@ -150,7 +150,7 @@ public class RaccourciDto {
 	 *
 	 * @param nomProgramme to set
 	 */
-	public void setProgramme(Programme nomProgramme) {
+	public void setProgramme(String nomProgramme) {
 		this.nomProgramme = nomProgramme;
 	}
 

@@ -40,7 +40,7 @@ public class ProgrammeController {
 	 * 
 	 * @return List of Programme
 	 */
-	@GetMapping()
+	@GetMapping
 	public ResponseEntity<List<Programme>> listerProgrammes() {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.lister());
 	}

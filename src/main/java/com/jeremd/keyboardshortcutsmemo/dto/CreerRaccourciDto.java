@@ -21,10 +21,6 @@ public class CreerRaccourciDto {
 	@JsonProperty("touches")
 	private String touches;
 
-	@NotNull
-	@JsonProperty("idProgramme")
-	private Integer idProgramme;
-
 	/**
 	 * Constructor
 	 *
@@ -38,15 +34,12 @@ public class CreerRaccourciDto {
 	 * @param libelle
 	 * @param description
 	 * @param touches
-	 * @param idProgramme
 	 */
-	public CreerRaccourciDto(@NotBlank String libelle, String description, @NotBlank String touches,
-			@NotNull Integer idProgramme) {
+	public CreerRaccourciDto(@NotBlank String libelle, String description, @NotBlank String touches) {
 		super();
 		this.libelle = libelle;
 		this.description = description;
 		this.touches = touches;
-		this.idProgramme = idProgramme;
 	}
 	
 	

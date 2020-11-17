@@ -30,7 +30,7 @@ public class Raccourci {
 
 	/** nomProgramme */
 	@ManyToOne
-	@JoinColumn(name = "id_prog")
+	@JoinColumn(name = "nom_programme")
 	@JsonBackReference
 	private Programme nomProgramme;
 
@@ -47,7 +47,6 @@ public class Raccourci {
 	 * @param libelle
 	 * @param description
 	 * @param touches
-	 * @param nomProgramme
 	 */
 	public Raccourci(String libelle, String description, String touches) {
 		this.libelle = libelle;
