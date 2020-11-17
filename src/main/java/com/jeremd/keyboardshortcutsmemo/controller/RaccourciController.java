@@ -26,7 +26,7 @@ public class RaccourciController {
 	 * @param nomProgramme
 	 * @return
 	 */
-	@GetMapping("{nomProgramme}")
+	@GetMapping()
 	public ResponseEntity<?> listerRaccourcis(@PathVariable String nomProgramme) {
 		return ResponseEntity.status(HttpStatus.OK).body(raccourciService.afficher(nomProgramme));
 	}

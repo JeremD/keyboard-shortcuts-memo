@@ -20,7 +20,7 @@ import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.service.ProgrammeService;
 
 @RestController
-@RequestMapping()
+@RequestMapping("programmes")
 public class ProgrammeController {
 
 	/** programmeService */
@@ -40,7 +40,7 @@ public class ProgrammeController {
 	 * 
 	 * @return List of Programme
 	 */
-	@GetMapping("programmes")
+	@GetMapping()
 	public ResponseEntity<List<Programme>> listerProgrammes() {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.lister());
 	}

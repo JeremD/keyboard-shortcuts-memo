@@ -11,6 +11,5 @@ import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 public interface RaccourciRepo extends JpaRepository<Raccourci, Integer> {
 	
 	List<Raccourci> findByNomProgramme(String nomProgramme);
-
 	
 }
