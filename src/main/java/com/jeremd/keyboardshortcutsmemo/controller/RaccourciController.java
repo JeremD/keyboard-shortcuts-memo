@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jeremd.keyboardshortcutsmemo.service.RaccourciService;
 
 @RestController
-@RequestMapping("raccourcis")
+@RequestMapping("raccourci")
 public class RaccourciController {
 
 	private RaccourciService raccourciService;
@@ -23,11 +23,10 @@ public class RaccourciController {
 	 *
 	 * Lister les raccourcis d'un programme
 	 * 
-	 * @param categorie
 	 * @param nomProgramme
 	 * @return
 	 */
-	@GetMapping("{categorie}/{nomProgramme}")
+	@GetMapping("{nomProgramme}")
 	public ResponseEntity<?> listerRaccourcis(@PathVariable String nomProgramme) {
 		return ResponseEntity.status(HttpStatus.OK).body(raccourciService.afficher(nomProgramme));
 	}

@@ -26,7 +26,7 @@ public class WelcomeController {
 	 * 
 	 * @return
 	 */
-	@GetMapping("/about")
+	@GetMapping("about")
 	public static String About() {
 		return "API REST memo raccourci clavier";
 	}
