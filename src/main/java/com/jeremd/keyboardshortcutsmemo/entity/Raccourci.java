@@ -31,8 +31,7 @@ public class Raccourci {
 	/** nomProgramme */
 	@ManyToOne
 	@JoinColumn(name = "nom_programme")
-	@JsonBackReference
-	private Programme nomProgramme;
+	private Programme programme;
 
 	/**
 	 * Constructor
@@ -129,19 +128,19 @@ public class Raccourci {
 	/**
 	 * Getter
 	 *
-	 * @return the nomProgramme
+	 * @return the programme
 	 */
 	public Programme getProgramme() {
-		return nomProgramme;
+		return programme;
 	}
 
 	/**
 	 * Setter
 	 *
-	 * @param nomProgramme to set
+	 * @param programme to set
 	 */
-	public void setProgramme(Programme nomProgramme) {
-		this.nomProgramme = nomProgramme;
+	public void setProgramme(Programme programme) {
+		this.programme = programme;
 	}
 
 }

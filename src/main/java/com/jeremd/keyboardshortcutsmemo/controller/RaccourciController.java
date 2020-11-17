@@ -23,12 +23,12 @@ public class RaccourciController {
 	 *
 	 * Lister les raccourcis d'un programme
 	 * 
-	 * @param nomProgramme
+	 * @param programme
 	 * @return
 	 */
-	@GetMapping("nomProgramme")
-	public ResponseEntity<?> listerRaccourcis(@PathVariable String nomProgramme) {
-		return ResponseEntity.status(HttpStatus.OK).body(raccourciService.afficher(nomProgramme));
+	@GetMapping("programme")
+	public ResponseEntity<?> listerRaccourcis(@PathVariable String programme) {
+		return ResponseEntity.status(HttpStatus.OK).body(raccourciService.afficher(programme));
 	}
 
 }
