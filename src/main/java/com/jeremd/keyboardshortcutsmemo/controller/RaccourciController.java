@@ -31,7 +31,7 @@ public class RaccourciController {
 	 * @return
 	 */
 	@GetMapping("{programme}")
-	public ResponseEntity<List<Raccourci>> listerRaccourcis(@PathVariable Programme programme) {
+	public ResponseEntity<List<Raccourci>> listerRaccourcis(@PathVariable String programme) {
 		List<Raccourci> listRaccourci = raccourciService.afficher(programme);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(listRaccourci);
