@@ -11,9 +11,9 @@ import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 
 @Repository
-public interface RaccourciRepo extends JpaRepository<Raccourci, Integer> {
+public interface RaccourciRepo extends JpaRepository<Raccourci, String> {
 	
 	@Query("SELECT r FROM Raccourci r WHERE r.programme = :programme")
-	List<Raccourci> findByProgramme(@Param("programme") String programme);
+	List<Raccourci> findByProgramme(@Param("programme") Programme programme);
 	
 }

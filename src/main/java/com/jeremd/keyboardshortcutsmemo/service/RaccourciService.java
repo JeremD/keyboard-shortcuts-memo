@@ -30,7 +30,7 @@ public class RaccourciService {
 	 * @param programme
 	 * @return raccourci du logiciel
 	 */
-	public List<Raccourci> afficher(String programme) {
+	public List<Raccourci> afficher(Programme programme) {
 		return raccourciRepo.findByProgramme(programme);
 	}
 
