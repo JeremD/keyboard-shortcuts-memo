@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 import com.jeremd.keyboardshortcutsmemo.repository.RaccourciRepo;
 
