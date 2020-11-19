@@ -30,6 +30,7 @@ public class Raccourci {
 
 	/** programme */
 	@ManyToOne
+	@JoinColumn(name = "programme")
 	private Programme programme;
 
 	/**
@@ -138,8 +139,8 @@ public class Raccourci {
 	 *
 	 * @param programme to set
 	 */
-	public void setProgramme(Programme nomProgramme) {
-		this.programme = nomProgramme;
+	public void setProgramme(Programme programme) {
+		this.programme = programme;
 	}
 
 }

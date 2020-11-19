@@ -2,6 +2,7 @@ package com.jeremd.keyboardshortcutsmemo.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import com.jeremd.keyboardshortcutsmemo.repository.RaccourciRepo;
 public class RaccourciService {
 
 	/** raccourciRepo */
+	@Autowired
 	private RaccourciRepo raccourciRepo;
 
 	/**
@@ -25,13 +27,14 @@ public class RaccourciService {
 	}
 
 	/**
-	 * Afficher les raccourcis d'un programme
+	 * Afficher les raccourcis
+	 * @param programme 
 	 * 
 	 * @param programme
 	 * @return raccourci du logiciel
 	 */
 	public List<Raccourci> afficher(String programme) {
-		return raccourciRepo.findByProgramme(programme);
+		return raccourciRepo.findAll();
 	}
 
 	/**
@@ -40,11 +43,11 @@ public class RaccourciService {
 	 * @param libelle
 	 * @param description
 	 * @param touches
+	 * @param programme
 	 * @return Raccourci ajouté
 	 */
-	@Transactional
-	public Raccourci ajouter(String libelle, String description, String touches) {
-		return raccourciRepo.save(new Raccourci(libelle, description, touches));
-	}
+//	public Raccourci ajouter(String libelle, String description, String touches) {
+//		return raccourciRepo.save(new Raccourci(libelle, description, touches));
+//	}
 
 }

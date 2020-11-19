@@ -1,5 +1,6 @@
 package com.jeremd.keyboardshortcutsmemo.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ public class Programme {
 	/** raccourci */
 	@OneToMany(mappedBy = "programme")
 	@JsonIgnore
-	private List<Raccourci> raccourci;
+	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
 
 	/**
 	 * Constructor
