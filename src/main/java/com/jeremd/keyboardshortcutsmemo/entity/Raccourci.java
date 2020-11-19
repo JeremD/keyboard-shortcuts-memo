@@ -1,10 +1,10 @@
 package com.jeremd.keyboardshortcutsmemo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,8 +27,11 @@ public class Raccourci {
 	private String touches;
 
 	/** programme */
-	@ManyToOne
-	private Programme programme;
+//	@ManyToOne
+//	private Programme programme;
+	
+	/** programme */
+	private String programme;
 
 	/**
 	 * Constructor
@@ -44,7 +47,7 @@ public class Raccourci {
 	 * @param description
 	 * @param touches
 	 */
-	public Raccourci(String libelle, String description, String touches, Programme programme) {
+	public Raccourci(String libelle, String description, String touches, String programme) {
 		this.libelle = libelle;
 		this.description = description;
 		this.touches = touches;
@@ -128,7 +131,7 @@ public class Raccourci {
 	 *
 	 * @return the programme
 	 */
-	public Programme getProgramme() {
+	public String getProgramme() {
 		return programme;
 	}
 
@@ -137,7 +140,7 @@ public class Raccourci {
 	 *
 	 * @param programme to set
 	 */
-	public void setProgramme(Programme programme) {
+	public void setProgramme(String programme) {
 		this.programme = programme;
 	}
 
