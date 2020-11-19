@@ -39,6 +39,7 @@ public class ProgrammeService {
 	 * @return List of Programme
 	 */
 	public List<Programme> lister() {
+	
 		return programmeRepo.findAll();
 	}
 	
@@ -56,13 +57,14 @@ public class ProgrammeService {
 	/**
 	 * Ajouter un programme
 	 * 
-	 * @param categorie
+	 * @param libelle
 	 * @param nom
+	 * @param categorie
 	 * @return Programme added
 	 */
 	@Transactional
-	public Programme ajouter(String categorie, String nom) {
-		return programmeRepo.save(new Programme(categorie, nom));
+	public Programme ajouter(String libelle, String nom, String categorie) {
+		return programmeRepo.save(new Programme(libelle, nom, categorie));
 	}
 
 }

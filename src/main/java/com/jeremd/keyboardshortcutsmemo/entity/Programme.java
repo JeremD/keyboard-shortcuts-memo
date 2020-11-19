@@ -16,21 +16,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "programme")
 public class Programme {
 
-	/** id */
+	/** libelle */
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-
-	/** categorie */
-	private String categorie;
+	private String libelle;
 
 	/** nom */
 	private String nom;
-
-	/** raccourci */
-	@OneToMany(mappedBy = "programme")
-	@JsonIgnore
-	private List<Raccourci> raccourci = new ArrayList<Raccourci>();
+	
+	/** categorie */
+	private String categorie;
 
 	/**
 	 * Constructor
@@ -43,49 +37,35 @@ public class Programme {
 	/**
 	 * Constructor
 	 * 
-	 * @param categorie
+	 * @param libelle
 	 * @param nom
+	 * @param categorie
 	 */
-	public Programme(String categorie, String nom) {
-		this.categorie = categorie;
+	public Programme(String libelle, String nom, String categorie) {
 		this.nom = nom;
-	}
-
-	/**
-	 * Getter
-	 *
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	/**
-	 * Getter
-	 *
-	 * @return the categorie
-	 */
-	public String getCategorie() {
-		return categorie;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param categorie to set
-	 */
-	public void setCategorie(String categorie) {
 		this.categorie = categorie;
 	}
+
+
+	/**
+	 * Getter
+	 *
+	 * @return the libelle
+	 */
+	public String getLibelle() {
+		return libelle;
+	}
+
+
+	/**
+	 * Setter
+	 *
+	 * @param libelle to set
+	 */
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
 
 	/**
 	 * Getter
@@ -95,6 +75,7 @@ public class Programme {
 	public String getNom() {
 		return nom;
 	}
+
 
 	/**
 	 * Setter
@@ -109,21 +90,20 @@ public class Programme {
 	/**
 	 * Getter
 	 *
-	 * @return the raccourci
+	 * @return the categorie
 	 */
-	public List<Raccourci> getRaccourci() {
-		return raccourci;
+	public String getCategorie() {
+		return categorie;
 	}
 
 
 	/**
 	 * Setter
 	 *
-	 * @param raccourci to set
+	 * @param categorie to set
 	 */
-	public void setRaccourci(List<Raccourci> raccourci) {
-		this.raccourci = raccourci;
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
 	}
-
-
+	
 }

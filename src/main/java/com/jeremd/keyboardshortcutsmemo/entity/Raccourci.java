@@ -8,8 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 @Entity
 @Table(name = "raccourci")
 public class Raccourci {
@@ -30,7 +28,6 @@ public class Raccourci {
 
 	/** programme */
 	@ManyToOne
-	@JoinColumn(name = "programme")
 	private Programme programme;
 
 	/**
@@ -47,10 +44,11 @@ public class Raccourci {
 	 * @param description
 	 * @param touches
 	 */
-	public Raccourci(String libelle, String description, String touches) {
+	public Raccourci(String libelle, String description, String touches, Programme programme) {
 		this.libelle = libelle;
 		this.description = description;
 		this.touches = touches;
+		this.programme = programme;
 	}
 
 	/**

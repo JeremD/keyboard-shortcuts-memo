@@ -2,14 +2,14 @@ package com.jeremd.keyboardshortcutsmemo.dto;
 
 public class ProgrammeDto {
 
-	/** id */
-	private Integer id;
+	/** libelle */
+	private String libelle;
+	
+	/** nom */
+	private String nom;
 
 	/** categorie */
 	private String categorie;
-
-	/** nom */
-	private String nom;
 
 	/**
 	 * Constructor
@@ -20,52 +20,33 @@ public class ProgrammeDto {
 
 	/**
 	 * Constructor
-	 *
-	 * @param id
-	 * @param categorie
+	 * 
+	 * @param libelle
 	 * @param nom
-	 * @param raccourci
+	 * @param categorie
 	 */
-	public ProgrammeDto(Integer id, String categorie, String nom) {
-		this.id = id;
-		this.categorie = categorie;
+	public ProgrammeDto(String libelle, String nom, String categorie) {
+		this.libelle = libelle;
 		this.nom = nom;
-	}
-
-	/**
-	 * Getter
-	 *
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	/**
-	 * Getter
-	 *
-	 * @return the categorie
-	 */
-	public String getCategorie() {
-		return categorie;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param categorie to set
-	 */
-	public void setCategorie(String categorie) {
 		this.categorie = categorie;
+	}
+
+	/**
+	 * Getter
+	 *
+	 * @return the libelle
+	 */
+	public String getLibelle() {
+		return libelle;
+	}
+
+	/**
+	 * Setter
+	 *
+	 * @param libelle to set
+	 */
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 	/**
@@ -86,4 +67,22 @@ public class ProgrammeDto {
 		this.nom = nom;
 	}
 
+	/**
+	 * Getter
+	 *
+	 * @return the categorie
+	 */
+	public String getCategorie() {
+		return categorie;
+	}
+
+	/**
+	 * Setter
+	 *
+	 * @param categorie to set
+	 */
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+	
 }

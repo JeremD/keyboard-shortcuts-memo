@@ -6,15 +6,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CreerProgrammeDto {
 
-	/** categorie */
+	/** libelle */
 	@NotBlank
-	@JsonProperty("categorie")
-	private String categorie;
-
+	@JsonProperty("libelle")
+	private String libelle;
+	
 	/** nom */
 	@NotBlank
 	@JsonProperty("nom")
 	private String nom;
+	
+	/** categorie */
+	@NotBlank
+	@JsonProperty("categorie")
+	private String categorie;
 	
 	/**
 	 * Constructor
@@ -23,35 +28,40 @@ public class CreerProgrammeDto {
 	public CreerProgrammeDto() {
 	}
 
+
 	/**
 	 * Constructor
 	 *
-	 * @param categorie
+	 * @param libelle
 	 * @param nom
+	 * @param categorie
 	 */
-	public CreerProgrammeDto(@NotBlank String categorie, @NotBlank String nom) {
-		super();
-		this.categorie = categorie;
+	public CreerProgrammeDto(@NotBlank String libelle, @NotBlank String nom, @NotBlank String categorie) {
+		this.libelle = libelle;
 		this.nom = nom;
+		this.categorie = categorie;
 	}
+
 
 	/**
 	 * Getter
 	 *
-	 * @return the categorie
+	 * @return the libelle
 	 */
-	public String getCategorie() {
-		return categorie;
+	public String getLibelle() {
+		return libelle;
 	}
+
 
 	/**
 	 * Setter
 	 *
-	 * @param categorie to set
+	 * @param libelle to set
 	 */
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
+
 
 	/**
 	 * Getter
@@ -62,6 +72,7 @@ public class CreerProgrammeDto {
 		return nom;
 	}
 
+
 	/**
 	 * Setter
 	 *
@@ -70,6 +81,25 @@ public class CreerProgrammeDto {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
+
+
+	/**
+	 * Getter
+	 *
+	 * @return the categorie
+	 */
+	public String getCategorie() {
+		return categorie;
+	}
+
+
+	/**
+	 * Setter
+	 *
+	 * @param categorie to set
+	 */
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
 
 }

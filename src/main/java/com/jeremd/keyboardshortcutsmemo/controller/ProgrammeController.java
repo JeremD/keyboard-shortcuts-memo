@@ -41,7 +41,7 @@ public class ProgrammeController {
 	 * @return List of Programme
 	 */
 	@GetMapping
-	public ResponseEntity<List<Programme>> listerProgrammes() {
+	public ResponseEntity<List<Programme>> listerAllProgrammes() {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.lister());
 	}
 	
@@ -66,10 +66,10 @@ public class ProgrammeController {
 	@PostMapping
 	public ProgrammeDto ajouterProgramme(@RequestBody @Valid CreerProgrammeDto programme, BindingResult result) {
 
-		Programme ajoutProgramme = programmeService.ajouter(programme.getCategorie(), programme.getNom());
+		Programme ajoutProgramme = programmeService.ajouter(programme.getLibelle(), programme.getNom(), programme.getCategorie());
 
 		ProgrammeDto programmeDto = new ProgrammeDto();
-		programmeDto.setId(ajoutProgramme.getId());
+		programmeDto.setLibelle(ajoutProgramme.getLibelle());
 		programmeDto.setCategorie(ajoutProgramme.getCategorie());
 		programmeDto.setNom(ajoutProgramme.getNom());
 

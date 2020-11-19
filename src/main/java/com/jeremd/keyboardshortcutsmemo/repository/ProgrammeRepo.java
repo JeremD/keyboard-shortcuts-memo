@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 
 @Repository
-public interface ProgrammeRepo extends JpaRepository<Programme, Integer> {
+public interface ProgrammeRepo extends JpaRepository<Programme, String> {
 
 	List<Programme> findByCategorie(String categorie);
 	

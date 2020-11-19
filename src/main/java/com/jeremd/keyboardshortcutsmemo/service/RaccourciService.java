@@ -34,7 +34,7 @@ public class RaccourciService {
 	 * @return raccourci du logiciel
 	 */
 	public List<Raccourci> afficher(String programme) {
-		return raccourciRepo.findAll();
+		return raccourciRepo.findByProgramme(programme);
 	}
 
 	/**

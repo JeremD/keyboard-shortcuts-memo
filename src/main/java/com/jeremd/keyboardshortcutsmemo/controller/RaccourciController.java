@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
@@ -30,12 +31,11 @@ public class RaccourciController {
 	 * @param programme
 	 * @return
 	 */
-	@GetMapping("{programme}")
-	public ResponseEntity<List<Raccourci>> listerRaccourcis(@PathVariable String programme) {
+	@GetMapping()
+	public List<Raccourci> listerRaccourcis(@RequestParam String programme) {
 		
-		List<Raccourci> listRaccourci = raccourciService.afficher(programme);
+		return raccourciService.afficher(programme);
 		
-		return ResponseEntity.status(HttpStatus.OK).body(listRaccourci);
 	}
 
 }

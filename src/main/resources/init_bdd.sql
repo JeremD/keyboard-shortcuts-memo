@@ -1,8 +1,8 @@
 create table programme (
-    id int not null auto_increment,
-    categorie char(50) not null,
+    libelle char(50) not null,
     nom char(50) unique not null,
-    primary key (id)
+    categorie char(50) not null,
+    primary key (libelle)
 );
 
 create table raccourci (
@@ -12,9 +12,9 @@ create table raccourci (
     touches char(50) not null,
     programme char(50),
     primary key (id),
-    foreign key (programme) references programme(nom)
+    foreign key (programme) references programme(libelle)
 );
 
-insert into programme (categorie, nom) value ('logiciel', 'firefox');
-insert into programme (categorie, nom) value ('jeux', 'AoE');
+insert into programme (libelle, nom, categorie) value ('firefox', 'Mozilla Firefox', 'logiciel');
+insert into programme (libelle, nom, categorie) value ('aoe2', 'Age of Empires II', 'jeu');
 insert into raccourci (libelle, description, touches, programme) value ('onglet-ouvrir', 'Ouvrir un onglet', 'CTRL + T', 'firefox');
