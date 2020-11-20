@@ -21,7 +21,6 @@ import com.jeremd.keyboardshortcutsmemo.repository.ProgrammeRepo;
 public class ProgrammeService {
 
 	/** programmeRepo */
-	@Autowired
 	private ProgrammeRepo programmeRepo;
 	
 	/**

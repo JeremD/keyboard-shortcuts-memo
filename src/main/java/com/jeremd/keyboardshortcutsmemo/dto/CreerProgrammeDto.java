@@ -1,6 +1,7 @@
 package com.jeremd.keyboardshortcutsmemo.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -8,16 +9,19 @@ public class CreerProgrammeDto {
 
 	/** libelle */
 	@NotBlank
+	@Size(min = 2)
 	@JsonProperty("libelle")
 	private String libelle;
 	
 	/** nom */
 	@NotBlank
+	@Size(min = 3)
 	@JsonProperty("nom")
 	private String nom;
 	
 	/** categorie */
 	@NotBlank
+	@Size(min = 4)
 	@JsonProperty("categorie")
 	private String categorie;
 	
@@ -36,12 +40,13 @@ public class CreerProgrammeDto {
 	 * @param nom
 	 * @param categorie
 	 */
-	public CreerProgrammeDto(@NotBlank String libelle, @NotBlank String nom, @NotBlank String categorie) {
+	public CreerProgrammeDto(@NotBlank @Size(min = 2) String libelle, @NotBlank @Size(min = 3) String nom,
+			@NotBlank @Size(min = 4) String categorie) {
+		super();
 		this.libelle = libelle;
 		this.nom = nom;
 		this.categorie = categorie;
 	}
-
 
 	/**
 	 * Getter
