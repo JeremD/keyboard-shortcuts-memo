@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jeremd.keyboardshortcutsmemo.dto.ModifierRaccourciDto;
 import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 import com.jeremd.keyboardshortcutsmemo.repository.RaccourciRepo;
 
@@ -45,8 +46,23 @@ public class RaccourciService {
 	 * @param programme
 	 * @return Raccourci ajouté
 	 */
-//	public Raccourci ajouter(String libelle, String description, String touches) {
-//		return raccourciRepo.save(new Raccourci(libelle, description, touches));
-//	}
+	public Raccourci ajouter(String libelle, String description, String touches, String programme) {
+		return raccourciRepo.save(new Raccourci(libelle, description, touches, programme));
+	}
+	
+	/**
+	 * Modifier un raccourci
+	 * 
+	 * @param modificationRaccourci
+	 * @param programme
+	 * @return
+	 */
+	public Raccourci modifier(ModifierRaccourciDto modificationRaccourci, Integer id) {
+		Raccourci raccourci = raccourciRepo.findById(id);
+		raccourci.setLibelle(modificationRaccourci.getLibelle());
+		raccourci.setDescription(modificationRaccourci.getDescription());
+		raccourci.setTouche(modificationRaccourci.getTouches());
+		return raccourciRepo.save(raccourci);
+	}
 
 }

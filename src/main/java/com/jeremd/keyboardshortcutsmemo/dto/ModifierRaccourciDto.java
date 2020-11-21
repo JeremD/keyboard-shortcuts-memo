@@ -1,70 +1,48 @@
 package com.jeremd.keyboardshortcutsmemo.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-import org.springframework.data.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 
-public class RaccourciDto {
-
-	/** id */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+public class ModifierRaccourciDto {
 
 	/** libelle */
+	@NotBlank
+	@Size(min = 5)
+	@JsonProperty("libelle")
 	private String libelle;
 
 	/** description */
+	@Size(min = 5)
+	@JsonProperty("description")
 	private String description;
 
 	/** touches */
+	@NotBlank
+	@JsonProperty("touches")
 	private String touches;
-
-	/** programme */
-	private String programme;
 
 	/**
 	 * Constructor
 	 *
 	 */
-	public RaccourciDto() {
+	public ModifierRaccourciDto() {
 	}
 
 	/**
 	 * Constructor
 	 *
-	 * @param id
 	 * @param libelle
 	 * @param description
 	 * @param touches
 	 * @param programme
 	 */
-	public RaccourciDto(Integer id, String libelle, String description, String touches, String programme) {
-		this.id = id;
+	public ModifierRaccourciDto(@NotBlank @Size(min = 5) String libelle, @Size(min = 5) String description, @NotBlank String touches) {
 		this.libelle = libelle;
 		this.description = description;
 		this.touches = touches;
-		this.programme = programme;
-	}
-
-
-	/**
-	 * Getter
-	 *
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	/**
@@ -108,7 +86,7 @@ public class RaccourciDto {
 	 *
 	 * @return the touches
 	 */
-	public String getTouche() {
+	public String getTouches() {
 		return touches;
 	}
 
@@ -117,26 +95,8 @@ public class RaccourciDto {
 	 *
 	 * @param touches to set
 	 */
-	public void setTouche(String touches) {
+	public void setTouches(String touches) {
 		this.touches = touches;
-	}
-
-	/**
-	 * Getter
-	 *
-	 * @return the programme
-	 */
-	public String getProgramme() {
-		return programme;
-	}
-
-	/**
-	 * Setter
-	 *
-	 * @param programme to set
-	 */
-	public void setProgramme(String programme) {
-		this.programme = programme;
 	}
 
 }
