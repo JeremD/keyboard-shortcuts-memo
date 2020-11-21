@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jeremd.keyboardshortcutsmemo.dto.CreerProgrammeDto;
+import com.jeremd.keyboardshortcutsmemo.dto.ModifierProgrammeDto;
 import com.jeremd.keyboardshortcutsmemo.dto.ProgrammeDto;
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.service.ProgrammeService;
@@ -34,7 +36,7 @@ public class ProgrammeController {
 	public ProgrammeController(ProgrammeService programmeService) {
 		this.programmeService = programmeService;
 	}
-	
+
 	/**
 	 * Lister tous les programmes
 	 * 
@@ -44,7 +46,7 @@ public class ProgrammeController {
 	public ResponseEntity<List<Programme>> listerAllProgrammes() {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.lister());
 	}
-	
+
 	/**
 	 * Lister les programmes selon catégories
 	 * 
@@ -52,7 +54,7 @@ public class ProgrammeController {
 	 * @return
 	 */
 	@GetMapping("{categorie}")
-	public ResponseEntity<List<Programme>> listerCategories(@PathVariable String categorie) {
+	public ResponseEntity<List<Programme>> listerCategorieProgramme(@PathVariable String categorie) {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.listerParCategorie(categorie));
 	}
 
@@ -64,17 +66,24 @@ public class ProgrammeController {
 	 * @return Programme added
 	 */
 	@PostMapping
-	public ProgrammeDto ajouterProgramme(@RequestBody @Valid CreerProgrammeDto programme, BindingResult result) {
+	public ResponseEntity<?> ajouterProgramme(@Valid @RequestBody CreerProgrammeDto programme, BindingResult result) {
 
 		Programme ajoutProgramme = programmeService.ajouter(programme.getLibelle(), programme.getNom(), programme.getCategorie());
+		ProgrammeDto programmeDto = new ProgrammeDto(ajoutProgramme.getLibelle(), ajoutProgramme.getCategorie(), ajoutProgramme.getNom());
 
-		ProgrammeDto programmeDto = new ProgrammeDto();
-		programmeDto.setLibelle(ajoutProgramme.getLibelle());
-		programmeDto.setCategorie(ajoutProgramme.getCategorie());
-		programmeDto.setNom(ajoutProgramme.getNom());
+		return ResponseEntity.ok(programmeDto);
+	}
 
-		return programmeDto;
+	/**
+	 * @param programme
+	 * @param libelle
+	 * @param result
+	 * @return
+	 */
+	@PatchMapping("{libelle}")
+	public ResponseEntity<?> modifierProgramme(@RequestBody ModifierProgrammeDto programme, @PathVariable String libelle, BindingResult result) {
 
+		return ResponseEntity.status(HttpStatus.OK).body(programmeService.modifier(programme, libelle));
 	}
 
 }

@@ -12,4 +12,6 @@ public interface ProgrammeRepo extends JpaRepository<Programme, String> {
 
 	List<Programme> findByCategorie(String categorie);
 	
+	Programme findByLibelle(String libelle);
+	
 }

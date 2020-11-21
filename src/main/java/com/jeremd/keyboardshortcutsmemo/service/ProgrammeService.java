@@ -2,10 +2,10 @@ package com.jeremd.keyboardshortcutsmemo.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jeremd.keyboardshortcutsmemo.dto.ModifierProgrammeDto;
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.repository.ProgrammeRepo;
 
@@ -38,7 +38,6 @@ public class ProgrammeService {
 	 * @return List of Programme
 	 */
 	public List<Programme> lister() {
-	
 		return programmeRepo.findAll();
 	}
 	
@@ -50,6 +49,16 @@ public class ProgrammeService {
 	 */
 	public List<Programme> listerParCategorie(String categorie) {
 		return programmeRepo.findByCategorie(categorie);
+	}
+	
+	/**
+	 * Lister par libelle
+	 * 
+	 * @param libelle
+	 * @return
+	 */
+	public Programme listerParLibelle(String libelle) {
+		return programmeRepo.findByLibelle(libelle);
 	}
 	
 	
@@ -65,5 +74,21 @@ public class ProgrammeService {
 	public Programme ajouter(String libelle, String nom, String categorie) {
 		return programmeRepo.save(new Programme(libelle, nom, categorie));
 	}
-
+	
+	/**
+	 * Modifier un programme
+	 * 
+	 * @param modificationProgramme
+	 * @param libelle
+	 * @return
+	 */
+	@Transactional
+	public Programme modifier(ModifierProgrammeDto modificationProgramme, String libelle) {
+		
+		Programme programme = programmeRepo.findByLibelle(libelle);
+		programme.setNom(modificationProgramme.getNom());
+		programme.setCategorie(modificationProgramme.getCategorie());
+		return programmeRepo.save(programme);
+	}
+	
 }

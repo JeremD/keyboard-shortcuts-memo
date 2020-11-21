@@ -3,64 +3,35 @@ package com.jeremd.keyboardshortcutsmemo.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+public class ModifierProgrammeDto {
 
-public class CreerProgrammeDto {
-
-	/** libelle */
-	@NotBlank
-	@Size(min = 2)
-	@JsonProperty("libelle")
-	private String libelle;
-	
 	/** nom */
 	@NotBlank
 	@Size(min = 3)
-	@JsonProperty("nom")
 	private String nom;
 	
 	/** categorie */
 	@NotBlank
 	@Size(min = 3)
-	@JsonProperty("categorie")
 	private String categorie;
-
 	
 	/**
 	 * Constructor
 	 *
-	 * @param libelle
+	 */
+	public ModifierProgrammeDto() {
+	}
+
+	/**
+	 * Constructor
+	 *
 	 * @param nom
 	 * @param categorie
 	 */
-	public CreerProgrammeDto(@NotBlank @Size(min = 2) String libelle, @NotBlank @Size(min = 3) String nom,
-			@NotBlank @Size(min = 3) String categorie) {
-		super();
-		this.libelle = libelle;
+	public ModifierProgrammeDto(@NotBlank @Size(min = 3) String nom, @NotBlank @Size(min = 3) String categorie) {
 		this.nom = nom;
 		this.categorie = categorie;
 	}
-
-
-	/**
-	 * Getter
-	 *
-	 * @return the libelle
-	 */
-	public String getLibelle() {
-		return libelle;
-	}
-
-
-	/**
-	 * Setter
-	 *
-	 * @param libelle to set
-	 */
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-
 
 	/**
 	 * Getter
@@ -71,7 +42,6 @@ public class CreerProgrammeDto {
 		return nom;
 	}
 
-
 	/**
 	 * Setter
 	 *
@@ -80,7 +50,6 @@ public class CreerProgrammeDto {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 
 	/**
 	 * Getter
@@ -91,7 +60,6 @@ public class CreerProgrammeDto {
 		return categorie;
 	}
 
-
 	/**
 	 * Setter
 	 *
@@ -100,5 +68,6 @@ public class CreerProgrammeDto {
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
 	}
+	
 
 }

@@ -1,9 +1,9 @@
 package com.jeremd.keyboardshortcutsmemo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "programme")
@@ -11,6 +11,7 @@ public class Programme {
 
 	/** libelle */
 	@Id
+	@Column(name="libelle", unique=true)
 	private String libelle;
 
 	/** nom */
@@ -26,15 +27,16 @@ public class Programme {
 	public Programme() {
 	}
 	
-	
+
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param libelle
 	 * @param nom
 	 * @param categorie
 	 */
 	public Programme(String libelle, String nom, String categorie) {
+		this.libelle = libelle;
 		this.nom = nom;
 		this.categorie = categorie;
 	}
