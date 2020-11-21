@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,7 +45,7 @@ public class ProgrammeController {
 	 */
 	@GetMapping
 	public ResponseEntity<List<Programme>> listerAllProgrammes() {
-		return ResponseEntity.status(HttpStatus.OK).body(programmeService.lister());
+		return ResponseEntity.ok(programmeService.lister());
 	}
 
 	/**
@@ -57,6 +58,7 @@ public class ProgrammeController {
 	public ResponseEntity<List<Programme>> listerCategorieProgramme(@PathVariable String categorie) {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.listerParCategorie(categorie));
 	}
+	
 
 	/**
 	 * Ajouter un nouveau programme
@@ -82,8 +84,12 @@ public class ProgrammeController {
 	 */
 	@PatchMapping("{libelle}")
 	public ResponseEntity<?> modifierProgramme(@RequestBody ModifierProgrammeDto programme, @PathVariable String libelle, BindingResult result) {
-
-		return ResponseEntity.status(HttpStatus.OK).body(programmeService.modifier(programme, libelle));
+		return ResponseEntity.ok(programmeService.modifier(programme, libelle));
 	}
-
+	
+	@DeleteMapping("{libelle}")
+	public ResponseEntity<?> supprimerProgramme(@PathVariable String libelle) {
+		programmeService.supprimer(libelle);
+		return ResponseEntity.ok("Programme " + libelle + " supprimé");
+	}
 }

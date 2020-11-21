@@ -91,4 +91,13 @@ public class ProgrammeService {
 		return programmeRepo.save(programme);
 	}
 	
+	/**
+	 * Supprimer un programme
+	 * 
+	 * @param libelle
+	 */
+	public void supprimer(String libelle) {
+		programmeRepo.deleteById(libelle);
+	}
+	
 }
