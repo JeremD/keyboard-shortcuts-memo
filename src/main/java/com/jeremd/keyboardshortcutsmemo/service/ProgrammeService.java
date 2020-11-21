@@ -80,11 +80,10 @@ public class ProgrammeService {
 	 * 
 	 * @param modificationProgramme
 	 * @param libelle
-	 * @return
+	 * @return programme modified
 	 */
 	@Transactional
 	public Programme modifier(ModifierProgrammeDto modificationProgramme, String libelle) {
-		
 		Programme programme = programmeRepo.findByLibelle(libelle);
 		programme.setNom(modificationProgramme.getNom());
 		programme.setCategorie(modificationProgramme.getCategorie());

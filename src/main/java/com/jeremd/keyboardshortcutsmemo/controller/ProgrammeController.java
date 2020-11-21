@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jeremd.keyboardshortcutsmemo.dto.CreerProgrammeDto;
@@ -43,22 +44,33 @@ public class ProgrammeController {
 	 * 
 	 * @return List of Programme
 	 */
-	@GetMapping
+	@GetMapping("all")
 	public ResponseEntity<List<Programme>> listerAllProgrammes() {
 		return ResponseEntity.ok(programmeService.lister());
 	}
 
+	
 	/**
-	 * Lister les programmes selon catégories
+	 * Afficher un programme
+	 * 
+	 * @param libelle
+	 * @return programme
+	 */
+	@GetMapping
+	public ResponseEntity<Programme> listerLibelleProgramme(@RequestParam String libelle) {
+		return ResponseEntity.status(HttpStatus.OK).body(programmeService.listerParLibelle(libelle));
+	}
+	
+	/**
+	 * Lister les programmes par catégorie
 	 * 
 	 * @param categorie
-	 * @return
+	 * @return programme
 	 */
 	@GetMapping("{categorie}")
 	public ResponseEntity<List<Programme>> listerCategorieProgramme(@PathVariable String categorie) {
 		return ResponseEntity.status(HttpStatus.OK).body(programmeService.listerParCategorie(categorie));
 	}
-	
 
 	/**
 	 * Ajouter un nouveau programme
@@ -77,16 +89,24 @@ public class ProgrammeController {
 	}
 
 	/**
+	 * Modifier un programme
+	 * 
 	 * @param programme
 	 * @param libelle
 	 * @param result
-	 * @return
+	 * @return programme modified
 	 */
 	@PatchMapping("{libelle}")
 	public ResponseEntity<?> modifierProgramme(@RequestBody ModifierProgrammeDto programme, @PathVariable String libelle, BindingResult result) {
 		return ResponseEntity.ok(programmeService.modifier(programme, libelle));
 	}
 	
+	/**
+	 * Supprimer un programme
+	 * 
+	 * @param libelle
+	 * @return programme deleted
+	 */
 	@DeleteMapping("{libelle}")
 	public ResponseEntity<?> supprimerProgramme(@PathVariable String libelle) {
 		programmeService.supprimer(libelle);

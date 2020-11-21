@@ -29,9 +29,7 @@ public class RaccourciController {
 	 */
 	@GetMapping()
 	public List<Raccourci> listerRaccourcis(@RequestParam String programme) {
-		
 		return raccourciService.afficher(programme);
-		
 	}
 
 }
