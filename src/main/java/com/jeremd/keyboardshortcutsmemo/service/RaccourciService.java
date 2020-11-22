@@ -46,6 +46,7 @@ public class RaccourciService {
 	 * @param programme
 	 * @return Raccourci ajouté
 	 */
+	@Transactional
 	public Raccourci ajouter(String libelle, String description, String touches, String programme) {
 		return raccourciRepo.save(new Raccourci(libelle, description, touches, programme));
 	}
@@ -57,12 +58,23 @@ public class RaccourciService {
 	 * @param programme
 	 * @return
 	 */
+	@Transactional
 	public Raccourci modifier(ModifierRaccourciDto modificationRaccourci, Integer id) {
-		Raccourci raccourci = raccourciRepo.findById(id);
+		Raccourci raccourci = raccourciRepo.findById(id).get();
 		raccourci.setLibelle(modificationRaccourci.getLibelle());
 		raccourci.setDescription(modificationRaccourci.getDescription());
 		raccourci.setTouche(modificationRaccourci.getTouches());
 		return raccourciRepo.save(raccourci);
+	}
+	
+	/**
+	 * Supprimer un raccourci
+	 * 
+	 * @param id
+	 */
+	@Transactional
+	public void supprimer(Integer id) {
+		raccourciRepo.deleteById(id);
 	}
 
 }

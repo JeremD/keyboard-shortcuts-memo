@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,9 +58,32 @@ public class RaccourciController {
 		return ResponseEntity.ok(raccourciDto);
 	}
 	
+	/**
+	 * Modifier un raccourci d'une programme
+	 * 
+	 * @param raccourci
+	 * @param programme
+	 * @param id
+	 * @param result
+	 * @return Raccourci modified
+	 */
 	@PatchMapping
-	public public ResponseEntity<?> modifierRaccourci(@RequestBody ModifierRaccourciDto raccourci, @RequestParam String programme, @RequestParam Integer id, BindingResult result) {
-		return ResponseEntity.ok(raccourci);
+	public ResponseEntity<?> modifierRaccourci(@Valid @RequestBody ModifierRaccourciDto raccourci, @RequestParam String programme, @RequestParam Integer id, BindingResult result) {
+		return ResponseEntity.ok(raccourciService.modifier(raccourci, id));
+	}
+	
+	/**
+	 * Supprimer un raccourci
+	 * 
+	 * @param programme
+	 * @param id
+	 * @param result
+	 * @return Raccourci deleted
+	 */
+	@DeleteMapping
+	public ResponseEntity<?> supprimerRaccourci(@RequestParam String programme, @RequestParam Integer id) {
+		raccourciService.supprimer(id);
+		return ResponseEntity.ok("Raccourci n°" + id + " supprimé");
 	}
 	
 }

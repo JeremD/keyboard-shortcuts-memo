@@ -4,7 +4,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 
 public class ModifierRaccourciDto {
 

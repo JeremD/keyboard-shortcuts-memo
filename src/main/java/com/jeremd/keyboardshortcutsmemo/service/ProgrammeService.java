@@ -95,6 +95,7 @@ public class ProgrammeService {
 	 * 
 	 * @param libelle
 	 */
+	@Transactional
 	public void supprimer(String libelle) {
 		programmeRepo.deleteById(libelle);
 	}
