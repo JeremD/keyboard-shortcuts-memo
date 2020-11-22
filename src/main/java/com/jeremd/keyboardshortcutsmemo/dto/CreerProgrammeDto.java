@@ -25,7 +25,6 @@ public class CreerProgrammeDto {
 	@JsonProperty("categorie")
 	private String categorie;
 
-	
 	/**
 	 * Constructor
 	 *

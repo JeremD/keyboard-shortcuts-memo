@@ -32,11 +32,10 @@ public class SwaggerConfig {
      * @return
      */
     @Bean
-    public ApiInfo apiInfo() {
-    	
+    public ApiInfo myApiInfo() {
         return new ApiInfo(
             "Memo raccourcis clavier",
-            "This is a sample Spring Boot RESTful service using SpringFox + Swagger 2",
+            "Application Spring Boot RESTful pour mémoriser les raccourcis clavier des logiciels ou jeux",
             "V1",
             "",
             new Contact("JeremD", "https://github.com/JeremD/", ""), 
@@ -49,7 +48,7 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-          .apiInfo(apiInfo())
+          .apiInfo(myApiInfo())
           .select()                                  
           .apis(RequestHandlerSelectors.any())              
           .paths(PathSelectors.any())                          

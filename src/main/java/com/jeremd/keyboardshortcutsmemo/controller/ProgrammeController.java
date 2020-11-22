@@ -82,10 +82,8 @@ public class ProgrammeController {
 	 */
 	@PostMapping
 	public ResponseEntity<?> ajouterProgramme(@Valid @RequestBody CreerProgrammeDto programme, BindingResult result) {
-
 		Programme nouveauProgramme = programmeService.ajouter(programme.getLibelle(), programme.getNom(), programme.getCategorie());
 		ProgrammeDto programmeDto = ProgrammeMapper.INSTANCE.programmeToProgrammeDto(nouveauProgramme);
-
 		return ResponseEntity.ok(programmeDto);
 	}
 
