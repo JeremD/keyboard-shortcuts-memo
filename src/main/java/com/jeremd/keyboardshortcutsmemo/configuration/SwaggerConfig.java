@@ -16,15 +16,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {                                    
-
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)  
-          .select()                                  
-          .apis(RequestHandlerSelectors.any())              
-          .paths(PathSelectors.any())                          
-          .build();                                           
-    }
     
     /**
      * 
@@ -44,14 +35,24 @@ public class SwaggerConfig {
     public ApiInfo apiInfo() {
     	
         return new ApiInfo(
-            "Contact Application API",
+            "Memo raccourcis clavier",
             "This is a sample Spring Boot RESTful service using SpringFox + Swagger 2",
             "V1",
-            "urn:tos",
-            new Contact("Dariawan", "https://www.dariawan.com", "hello@dariawan.com"), 
+            "",
+            new Contact("JeremD", "https://github.com/JeremD/", ""), 
             "CC BY-SA 3.0",
             "https://creativecommons.org/licenses/by-sa/3.0/",
             Collections.emptyList()
         );
+    }
+    
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)  
+          .apiInfo(apiInfo())
+          .select()                                  
+          .apis(RequestHandlerSelectors.any())              
+          .paths(PathSelectors.any())                          
+          .build();                                           
     }
 }
