@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jeremd.keyboardshortcutsmemo.dto.CreerRaccourciDto;
 import com.jeremd.keyboardshortcutsmemo.dto.ModifierRaccourciDto;
 import com.jeremd.keyboardshortcutsmemo.dto.RaccourciDto;
+import com.jeremd.keyboardshortcutsmemo.dto.RaccourciMapper;
 import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 import com.jeremd.keyboardshortcutsmemo.service.RaccourciService;
 
@@ -54,7 +55,7 @@ public class RaccourciController {
 	@PostMapping
 	public ResponseEntity<?> ajouterRaccourci(@Valid @RequestBody CreerRaccourciDto raccourci, @RequestParam String programme, BindingResult result) {
 		Raccourci nouveauRaccourci = raccourciService.ajouter(raccourci.getLibelle(), raccourci.getDescription(), raccourci.getTouches(), programme);
-		RaccourciDto raccourciDto = new RaccourciDto(nouveauRaccourci.getId(), nouveauRaccourci.getLibelle(), nouveauRaccourci.getDescription(), nouveauRaccourci.getLibelle(), nouveauRaccourci.getProgramme());
+		RaccourciDto raccourciDto = RaccourciMapper.INSTANCE.raccourciToRaccourciDto(nouveauRaccourci);
 		return ResponseEntity.ok(raccourciDto);
 	}
 	

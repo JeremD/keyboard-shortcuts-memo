@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jeremd.keyboardshortcutsmemo.dto.CreerProgrammeDto;
 import com.jeremd.keyboardshortcutsmemo.dto.ModifierProgrammeDto;
 import com.jeremd.keyboardshortcutsmemo.dto.ProgrammeDto;
+import com.jeremd.keyboardshortcutsmemo.dto.ProgrammeMapper;
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.service.ProgrammeService;
 
@@ -83,7 +84,7 @@ public class ProgrammeController {
 	public ResponseEntity<?> ajouterProgramme(@Valid @RequestBody CreerProgrammeDto programme, BindingResult result) {
 
 		Programme nouveauProgramme = programmeService.ajouter(programme.getLibelle(), programme.getNom(), programme.getCategorie());
-		ProgrammeDto programmeDto = new ProgrammeDto(nouveauProgramme.getLibelle(), nouveauProgramme.getCategorie(), nouveauProgramme.getNom());
+		ProgrammeDto programmeDto = ProgrammeMapper.INSTANCE.programmeToProgrammeDto(nouveauProgramme);
 
 		return ResponseEntity.ok(programmeDto);
 	}
