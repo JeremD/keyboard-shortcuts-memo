@@ -61,6 +61,13 @@ public class ProgrammeService {
 		return programmeRepo.findByLibelle(libelle);
 	}
 	
+	/**
+	 * @param nom
+	 * @return
+	 */
+	public Programme listerParNom(String nom) {
+		return programmeRepo.findByNom(nom);
+	}
 	
 	/**
 	 * Ajouter un programme

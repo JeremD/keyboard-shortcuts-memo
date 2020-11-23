@@ -1,5 +1,5 @@
 create table programme (
-    libelle char(50) not null,
+    libelle char(50) unique not null,
     nom char(50) unique not null,
     categorie char(50) not null,
     primary key (libelle)

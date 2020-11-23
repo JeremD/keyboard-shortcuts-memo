@@ -34,7 +34,6 @@ public class CreerProgrammeDto {
 	 */
 	public CreerProgrammeDto(@NotBlank @Size(min = 2) String libelle, @NotBlank @Size(min = 3) String nom,
 			@NotBlank @Size(min = 3) String categorie) {
-		super();
 		this.libelle = libelle;
 		this.nom = nom;
 		this.categorie = categorie;
