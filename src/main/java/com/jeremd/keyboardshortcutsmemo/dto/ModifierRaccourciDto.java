@@ -1,6 +1,5 @@
 package com.jeremd.keyboardshortcutsmemo.dto;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,18 +7,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ModifierRaccourciDto {
 
 	/** libelle */
-	@NotBlank
 	@Size(min = 5)
 	@JsonProperty("libelle")
 	private String libelle;
 
 	/** description */
-	@Size(min = 5)
 	@JsonProperty("description")
 	private String description;
 
 	/** touches */
-	@NotBlank
 	@JsonProperty("touches")
 	private String touches;
 
@@ -28,20 +24,6 @@ public class ModifierRaccourciDto {
 	 *
 	 */
 	public ModifierRaccourciDto() {
-	}
-
-	/**
-	 * Constructor
-	 *
-	 * @param libelle
-	 * @param description
-	 * @param touches
-	 * @param programme
-	 */
-	public ModifierRaccourciDto(@NotBlank @Size(min = 5) String libelle, @Size(min = 5) String description, @NotBlank String touches) {
-		this.libelle = libelle;
-		this.description = description;
-		this.touches = touches;
 	}
 
 	/**

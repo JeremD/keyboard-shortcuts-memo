@@ -1,6 +1,5 @@
 package com.jeremd.keyboardshortcutsmemo.controller;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -20,7 +19,6 @@ import com.jeremd.keyboardshortcutsmemo.dto.CodeErreur;
 import com.jeremd.keyboardshortcutsmemo.dto.CreerProgrammeDto;
 import com.jeremd.keyboardshortcutsmemo.dto.MessageErreurDto;
 import com.jeremd.keyboardshortcutsmemo.dto.ModifierProgrammeDto;
-import com.jeremd.keyboardshortcutsmemo.dto.ProgrammeDto;
 import com.jeremd.keyboardshortcutsmemo.dto.ProgrammeMapper;
 import com.jeremd.keyboardshortcutsmemo.entity.Programme;
 import com.jeremd.keyboardshortcutsmemo.exception.ProgrammeAlreadyExistsException;

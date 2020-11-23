@@ -11,5 +11,7 @@ import com.jeremd.keyboardshortcutsmemo.entity.Raccourci;
 public interface RaccourciRepo extends JpaRepository<Raccourci, Integer> {
 	
 	List<Raccourci> findByProgramme(String programme);
+
+	Raccourci findByLibelle(String libelle);
 	
 }
