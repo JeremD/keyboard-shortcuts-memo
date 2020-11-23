@@ -50,7 +50,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
           .apiInfo(myApiInfo())
           .select()                                  
-          .apis(RequestHandlerSelectors.any())              
+          .apis(RequestHandlerSelectors.basePackage("com.jeremd.keyboardshortcutsmemo"))              
           .paths(PathSelectors.any())                          
           .build();                                           
     }
