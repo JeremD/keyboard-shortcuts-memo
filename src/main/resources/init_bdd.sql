@@ -10,7 +10,7 @@ create table raccourci (
     libelle char(50) not null,
     description char(50) not null,
     touches char(50) not null,
-    programme char(50),
+    programme char(50) not null,
     primary key (id),
     foreign key (programme) references programme(libelle)
 );

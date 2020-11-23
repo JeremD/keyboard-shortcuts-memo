@@ -6,29 +6,23 @@ import javax.validation.constraints.Size;
 public class ModifierProgrammeDto {
 
 	/** nom */
-	@NotBlank
+	@NotBlank(message="Entrer un nom")
 	@Size(min = 3)
 	private String nom;
 	
 	/** categorie */
-	@NotBlank
+	@NotBlank(message="Entrer une catégorie")
 	@Size(min = 3)
 	private String categorie;
 	
 	/**
 	 * Constructor
 	 *
-	 */
-	public ModifierProgrammeDto() {
-	}
-
-	/**
-	 * Constructor
-	 *
 	 * @param nom
 	 * @param categorie
 	 */
-	public ModifierProgrammeDto(@NotBlank @Size(min = 3) String nom, @NotBlank @Size(min = 3) String categorie) {
+	public ModifierProgrammeDto(@NotBlank(message = "Entrer un nom") @Size(min = 3) String nom,
+			@NotBlank(message = "Entrer une catégorie") @Size(min = 3) String categorie) {
 		this.nom = nom;
 		this.categorie = categorie;
 	}

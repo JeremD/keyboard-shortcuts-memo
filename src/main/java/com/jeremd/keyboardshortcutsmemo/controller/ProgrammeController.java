@@ -66,11 +66,11 @@ public class ProgrammeController {
 		
 		Programme programmeFound = programmeService.listerParLibelle(libelle);
 		
-		if (programmeFound != null) {
-			return ResponseEntity.ok(programmeFound);
-		} else {
+		if (programmeFound == null) {
 			throw new ProgrammeNotFoundException(new MessageErreurDto(CodeErreur.VALIDATION, "Programme non trouvé"));
 		}
+		
+		return ResponseEntity.ok(programmeFound);
 	
 	}
 	
@@ -85,11 +85,11 @@ public class ProgrammeController {
 		
 		List<Programme> programmeFound = programmeService.listerParCategorie(categorie);
 		
-		if (programmeFound != null) {
-			return ResponseEntity.ok(programmeFound);
-		} else {
+		if (programmeFound == null) {
 			throw new ProgrammeNotFoundException(new MessageErreurDto(CodeErreur.VALIDATION, "Type de programme non trouvé"));
 		}
+		
+		return ResponseEntity.ok(programmeFound);
 	}
 
 	/**
@@ -108,13 +108,15 @@ public class ProgrammeController {
 		
 		if (programmeService.listerParLibelle(programme.getLibelle()) != null) {
 			throw new ProgrammeAlreadyExistsException(new MessageErreurDto(CodeErreur.CREATION, "Un autre programme possède ce libellé"));
-		} else if (programmeService.listerParNom(programme.getNom()) != null) {
+		} 
+
+		if (programmeService.listerParNom(programme.getNom()) != null) {
 			throw new ProgrammeAlreadyExistsException(new MessageErreurDto(CodeErreur.CREATION, "Un autre programme possède ce nom"));
 		}
 		
 		Programme nouveauProgramme = programmeService.ajouter(programme.getLibelle(), programme.getNom(), programme.getCategorie());
-		ProgrammeDto programmeDto = ProgrammeMapper.INSTANCE.programmeToProgrammeDto(nouveauProgramme);
-		return ResponseEntity.ok(programmeDto);
+	
+		return ResponseEntity.ok(ProgrammeMapper.INSTANCE.programmeToProgrammeDto(nouveauProgramme));
 	}
 
 	/**

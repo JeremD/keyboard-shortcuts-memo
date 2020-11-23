@@ -8,19 +8,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CreerProgrammeDto {
 
 	/** libelle */
-	@NotBlank
+	@NotBlank(message="Entrer un libellé")
 	@Size(min = 2)
 	@JsonProperty("libelle")
 	private String libelle;
 	
 	/** nom */
-	@NotBlank
+	@NotBlank(message="Entrer un nom")
 	@Size(min = 3)
 	@JsonProperty("nom")
 	private String nom;
 	
 	/** categorie */
-	@NotBlank
+	@NotBlank(message="Entrer une catégorie")
 	@Size(min = 3)
 	@JsonProperty("categorie")
 	private String categorie;
@@ -32,13 +32,13 @@ public class CreerProgrammeDto {
 	 * @param nom
 	 * @param categorie
 	 */
-	public CreerProgrammeDto(@NotBlank @Size(min = 2) String libelle, @NotBlank @Size(min = 3) String nom,
-			@NotBlank @Size(min = 3) String categorie) {
+	public CreerProgrammeDto(@NotBlank(message = "Entrer un libellé") @Size(min = 2) String libelle,
+			@NotBlank(message = "Entrer un nom") @Size(min = 3) String nom,
+			@NotBlank(message = "Entrer une catégorie") @Size(min = 3) String categorie) {
 		this.libelle = libelle;
 		this.nom = nom;
 		this.categorie = categorie;
 	}
-
 
 	/**
 	 * Getter
