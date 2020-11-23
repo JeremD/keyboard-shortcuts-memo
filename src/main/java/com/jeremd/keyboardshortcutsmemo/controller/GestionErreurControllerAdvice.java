@@ -5,10 +5,12 @@ import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.jeremd.keyboardshortcutsmemo.exception.ProgrammeAlreadyExistsException;
 import com.jeremd.keyboardshortcutsmemo.exception.ProgrammeException;
-import com.jeremd.keyboardshortcutsmemo.exception.ProgrammeNotFound;
+import com.jeremd.keyboardshortcutsmemo.exception.ProgrammeNotFoundException;
+import com.jeremd.keyboardshortcutsmemo.exception.RaccourciAlreadyExistsException;
 import com.jeremd.keyboardshortcutsmemo.exception.RaccourciException;
-import com.jeremd.keyboardshortcutsmemo.exception.RaccourciNotFound;
+import com.jeremd.keyboardshortcutsmemo.exception.RaccourciNotFoundException;
 import com.jeremd.keyboardshortcutsmemo.dto.MessageErreurDto;
 
 @ControllerAdvice
@@ -24,13 +26,23 @@ public class GestionErreurControllerAdvice {
 		return ResponseEntity.badRequest().body(exception.getMessageErreur());
 	}
 	
-	@ExceptionHandler(ProgrammeNotFound.class)
-	public ResponseEntity<MessageErreurDto> quandProgrammeNonTrouveException(ProgrammeNotFound exception) {
+	@ExceptionHandler(ProgrammeNotFoundException.class)
+	public ResponseEntity<MessageErreurDto> quandProgrammeNonTrouveException(ProgrammeNotFoundException exception) {
 		return ((BodyBuilder) ResponseEntity.notFound()).body(exception.getMessageErreur());
 	}
 	
-	@ExceptionHandler(RaccourciNotFound.class)
-	public ResponseEntity<MessageErreurDto> quandRaccourciNonTrouveException(RaccourciNotFound exception) {
+	@ExceptionHandler(RaccourciNotFoundException.class)
+	public ResponseEntity<MessageErreurDto> quandRaccourciNonTrouveException(RaccourciNotFoundException exception) {
+		return ((BodyBuilder) ResponseEntity.notFound()).body(exception.getMessageErreur());
+	}
+	
+	@ExceptionHandler(ProgrammeAlreadyExistsException.class)
+	public ResponseEntity<MessageErreurDto> quandProgrammeExisteException(ProgrammeAlreadyExistsException exception) {
+		return ((BodyBuilder) ResponseEntity.notFound()).body(exception.getMessageErreur());
+	}
+	
+	@ExceptionHandler(RaccourciAlreadyExistsException.class)
+	public ResponseEntity<MessageErreurDto> quandRaccourciExisteException(RaccourciAlreadyExistsException exception) {
 		return ((BodyBuilder) ResponseEntity.notFound()).body(exception.getMessageErreur());
 	}
 	
